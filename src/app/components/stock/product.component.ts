@@ -19,12 +19,12 @@ import { ShoppingService } from '../../services/shopping.service';
         <span class="ta-r ut-product__price_new green">$ {{product.price}}</span>
         <button class="btn btn-primary" [disabled]="!product.inStock" *ngIf="!product.quantity"
           (click)="onAddProductToCart()">
-          <span>В корзину </span><i class="fa fa-shopping-cart"></i>
+          <span>Put in cart </span><i class="fa fa-shopping-cart"></i>
         </button>
         <p class="ut-product__incart" *ngIf="product.quantity">
           <button class="ut-product__incart_text btn btn-success" (click)="onGoToCart()">
             <i class="fa fa-check"></i>
-            <span>{{product.quantity}} в корзине</span>
+            <span>{{product.quantity}} in cart</span>
           </button>
           <span>
             <button class="btn btn-default" (click)="product.changeProductQuantity(true)">
@@ -38,11 +38,11 @@ import { ShoppingService } from '../../services/shopping.service';
       </div>
       <p class="m_0" [ngClass]="{'red':!product.inStock,'green':product.inStock}">
         <i class="fa" [ngClass]="{'fa-times':!product.inStock,'fa-thumbs-o-up':product.inStock}"></i>
-        <span>{{product.inStock ? 'В наличии' : 'Нет в наличии'}}</span>
+        <span>{{product.inStock ? 'In stock' : 'Not available'}}</span>
       </p>
       <p class="m_0 mb_8">
         <i class="fa fa-credit-card"></i>
-        <span>Скидка 20%</span>
+        <span>Discount 20%</span>
       </p>
     </section>
   `

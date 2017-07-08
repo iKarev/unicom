@@ -24,7 +24,7 @@ import { ProductClass } from '../../models/product';
           <h2 class="ut-product-detail__title mt_0">{{product.company}} {{product.model}}</h2>
           <p class="m_0" [ngClass]="{'red':!product.inStock,'green':product.inStock}">
             <i class="fa" [ngClass]="{'fa-times':!product.inStock,'fa-thumbs-o-up':product.inStock}"></i>
-            <span>{{product.inStock ? 'В наличии' : 'Нет в наличии'}}</span>
+            <span>{{product.inStock ? 'In stock' : 'Not available'}}</span>
           </p>
         </div>
         <div class="ut-product-detail__price layout-row layout-align-space-between-start">
@@ -38,14 +38,14 @@ import { ProductClass } from '../../models/product';
       </div>
       <div class="ut-product-detail__addtocart w_100" *ngIf="!product.quantity">
         <button class="btn btn-primary w_100" [disabled]="!product.inStock" (click)="onAddProductToCart()">
-          <span>В корзину </span><i class="fa fa-shopping-cart"></i>
+          <span>Put in cart </span><i class="fa fa-shopping-cart"></i>
         </button>
       </div>
       <div class="ut-product-detail__addtocart w_100 layout-row layout-align-space-between-start"
         *ngIf="product.quantity">
         <button class="ut-product__incart_text btn btn-success w_100" (click)="onGoToCart()">
           <i class="fa fa-check"></i>
-          <span>{{product.quantity}} в корзине</span>
+          <span>{{product.quantity}} in cart</span>
         </button>
         <div class="flex_20 ta-r">
           <button class="btn btn-default" (click)="product.changeProductQuantity(true)">

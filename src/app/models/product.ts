@@ -27,21 +27,15 @@ export class ProductClass {
 
     public addToCart () {
         this.quantity = 1;
-        this._shoppingService.addProductToCart(this).subscribe(res => {
-            console.log(res);
-        });
+        this._shoppingService.addProductToCart(this).subscribe();
     }
     public removeFromCart () {
-        this._shoppingService.removeProductFromCart(this).subscribe(res => {
-            console.log(res);
-        });
+        this._shoppingService.removeProductFromCart(this).subscribe();
     }
 
     public changeProductQuantity(isNeedAdd) {
         this.quantity += isNeedAdd ? 1 : -1;
-        this._shoppingService.changeProductQuantity(this.id, this.quantity).subscribe(res => {
-            console.log(res);
-        });
+        this._shoppingService.changeProductQuantity(this.id, this.quantity).subscribe();
     }
 
 }

@@ -11,19 +11,14 @@ export class ShoppingService {
     public allProducts: ProductClass[] = [];
 
     private api = 'http://127.0.0.1:3000';
+
     constructor(public http: Http) {}
 
-    // set apiUrl(){
-    //     this.api = 'http://127.0.0.1:3000';
-    // }
-
     public getItems() {
-        // return this.setProducts(data.data);
         const headers = new Headers();
         headers.set('X-AUTH-TOKEN', localStorage.getItem('X-AUTH-TOKEN'));
         return this.http.get(`${this.api}/list`)
             .map((res: Response) => {
-                // console.log(res);
                 this.allProducts = this.setProducts(res);
                 return this.setProducts(res);
             })
@@ -85,9 +80,12 @@ export class ShoppingService {
     public changeProductQuantity (id, quantity) {
         const headers = new Headers();
         const data = {id, quantity};
-        console.log(data);
         return this.http.put(`${this.api}`, data, {headers: headers})
             .map((res: Response) => {
+                if (quantity === 0) {
+                    const index = this.productsInCart.findIndex(item => item.id === id);
+                    this.productsInCart.splice(index, 1)
+                }
                 return res.json();
             })
             .catch((error: any) => Observable.throw(error.json() || 'Server error'));

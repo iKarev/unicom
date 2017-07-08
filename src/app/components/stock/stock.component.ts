@@ -33,7 +33,6 @@ export class StockComponent implements OnInit {
   private getCart () {
     this._shoppingService.getProductsInCart().subscribe(res => {
       this.products = this._shoppingService.allProducts;
-      console.log(res);
     });
   }
 

@@ -1,0 +1,277 @@
+*{
+  box-sizing: border-box;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+}
+
+
+/* Material Design START */
+
+.disp{
+  &-b{ display: block !important; }
+  &-i{ display: inline !important; }
+  &-n{ display: none !important; }
+  &-ib{ display: inline-block !important; }
+}
+.ta{
+  &-l{ text-align: left !important; }
+  &-c{ text-align: center !important; }
+  &-r{ text-align: right !important; }
+  &-j{ text-align: justify !important; }
+}
+.va-after{
+  &:after{
+    content:'';
+    display: inline-block;
+    vertical-align: middle;
+    width:1px;
+    height: 100%;
+  }
+}
+.va{
+  &-t{ vertical-align: top; }
+  &-m{ vertical-align: middle; }
+  &-b{ vertical-align: bottom; }
+}
+.of{
+  &-h{ overflow: hidden; }
+  &-a{ overflow: auto; }
+  &-v{ overflow: visible; }
+}
+.fl{
+  &-l{ float: left; } 
+  &-r{ float: right; }
+  &-n{ float: none; }
+}
+.visibility{
+  &-h{
+    visibility: hidden;
+  }
+}
+.fixed{ position: fixed !important; }
+.relative{ position: relative !important; }
+.absolute{ position: absolute !important; }
+.bgc{
+  &-transparent{
+    background-color: transparent !important;
+  }
+  &-white{
+    background-color: #fff !important;
+  }
+}
+.color{
+  &-blue{
+    color: $linkblue;
+  }
+}
+.rotate{
+  &-45{ transform: rotate(45deg); }
+  &-90{ transform: rotate(90deg); }
+  &-180{ transform: rotate(180deg); }
+  &-270{ transform: rotate(270deg); }
+}
+$numbers: (0,4,8,12,16,20,24,28,32);
+$flexLength: (5,10,15,20,25,30,33,35,40,45,50,55,60,65,66,70,75,80,85,90,95,100);
+$weights: (100,200,300,400,500,600,700,800,900);
+
+$flexTypes: ('row','column');
+$mainPositions: ('start','end','center','space-between','space-around');
+$addPositions: ('start','end','center');
+
+
+
+@each $type in $flexTypes {
+  .layout{
+    &-#{$type}{
+      display: flex;
+      flex-direction: #{$type};
+      & > .flex{
+        flex: 1 1 0%;
+          @if ($type == 'row') {
+            &_5{flex: 1 1 5%;max-width:5%;}
+            &_10{flex: 1 1 10%;max-width:10%;}
+            &_15{flex: 1 1 15%;max-width:15%;}
+            &_20{flex: 1 1 20%;max-width:20%;}
+            &_25{flex: 1 1 25%;max-width:25%;}
+            &_30{flex: 1 1 30%;max-width:30%;}
+            &_33{flex: 1 1 33.33%;max-width:33.33%;}
+            &_35{flex: 1 1 35%;max-width:35%;}
+            &_40{flex: 1 1 40%;max-width:40%;}
+            &_45{flex: 1 1 45%;max-width:45%;}
+            &_50{flex: 1 1 50%;max-width:50%;}
+            &_55{flex: 1 1 55%;max-width:55%;}
+            &_60{flex: 1 1 60%;max-width:60%;}
+            &_65{flex: 1 1 65%;max-width:65%;}
+            &_66{flex: 1 1 66.66%;max-width:66.66%;}
+            &_70{flex: 1 1 70%;max-width:70%;}
+            &_75{flex: 1 1 75%;max-width:75%;}
+            &_80{flex: 1 1 80%;max-width:80%;}
+            &_85{flex: 1 1 85%;max-width:85%;}
+            &_90{flex: 1 1 90%;max-width:90%;}
+            &_95{flex: 1 1 95%;max-width:95%;}
+            &_100{flex: 1 1 100%;max-width:100%;}            
+         /* Какая-то проблема с компилятором: после вставки значения писал ошибку на символ процента. Пришлось вручную прописать значения */
+            // @if ($l == 33) {
+            //   flex: 1 1 33.33%;max-width:33.33%;
+            // } @else if ($l == 66) {
+            //   flex: 1 1 66.66%;max-width:66.66%;
+            // } @else {
+            //   flex: 1 1 #{$l}%;max-width:#{$l}%;
+            // }
+          } @else {
+            &_5{flex: 1 1 5%;max-height:5%;}
+            &_10{flex: 1 1 10%;max-height:10%;}
+            &_15{flex: 1 1 15%;max-height:15%;}
+            &_20{flex: 1 1 20%;max-height:20%;}
+            &_25{flex: 1 1 25%;max-height:25%;}
+            &_30{flex: 1 1 30%;max-height:30%;}
+            &_33{flex: 1 1 33.33%;max-height:33.33%;}
+            &_35{flex: 1 1 35%;max-height:35%;}
+            &_40{flex: 1 1 40%;max-height:40%;}
+            &_45{flex: 1 1 45%;max-height:45%;}
+            &_50{flex: 1 1 50%;max-height:50%;}
+            &_55{flex: 1 1 55%;max-height:55%;}
+            &_60{flex: 1 1 60%;max-height:60%;}
+            &_65{flex: 1 1 65%;max-height:65%;}
+            &_66{flex: 1 1 66.66%;max-height:66.66%;}
+            &_70{flex: 1 1 70%;max-height:70%;}
+            &_75{flex: 1 1 75%;max-height:75%;}
+            &_80{flex: 1 1 80%;max-height:80%;}
+            &_85{flex: 1 1 85%;max-height:85%;}
+            &_90{flex: 1 1 90%;max-height:90%;}
+            &_95{flex: 1 1 95%;max-height:95%;}
+            &_100{flex: 1 1 100%;max-height:100%;}
+          
+        }
+      }
+    }
+    &-wrap{
+      flex-wrap: wrap;
+    }
+  }
+}
+.layout-align{
+  @each $main in $mainPositions {
+    @each $add in $addPositions {
+      &-#{$main}-#{$add}{
+        @if ($main == 'start') {
+          justify-content: flex-#{$main};
+        } @else if ($main == 'end') {
+          justify-content: flex-#{$main};
+        } @else {
+          justify-content: #{$main};  
+        }
+        @if ($add == 'start') {
+          align-items: flex-#{$add};
+        } @else if ($add == 'end') {
+          align-items: flex-#{$add};
+        } @else {
+          align-items: #{$add};  
+        }
+      }
+    }
+  }
+}
+
+@each $val in $numbers {
+  .m_#{$val} {margin: #{$val}px !important;}
+  .mh_#{$val} {margin-left: #{$val}px !important;margin-right: #{$val}px !important;}
+  .mv_#{$val} {margin-top: #{$val}px !important;margin-bottom: #{$val}px !important;}
+  .mb_#{$val} {margin-bottom: #{$val}px !important;}
+  .mt_#{$val} {margin-top: #{$val}px !important;}
+  .ml_#{$val} {margin-left: #{$val}px !important;}
+  .mr_#{$val} {margin-right: #{$val}px !important;}
+  
+  .p_#{$val} {padding: #{$val}px !important;}
+  .ph_#{$val} {padding-left: #{$val}px !important;padding-right: #{$val}px !important;}
+  .pv_#{$val} {padding-top: #{$val}px !important;padding-bottom: #{$val}px !important;}
+  .pb_#{$val} {padding-bottom: #{$val}px !important;}
+  .pt_#{$val} {padding-top: #{$val}px !important;}
+  .pl_#{$val} {padding-left: #{$val}px !important;}
+  .pr_#{$val} {padding-right: #{$val}px !important;}
+}
+
+@each $weight in $weights {
+  .fw_#{$weight} {font-weight: #{$weight} !important;}
+}
+
+.h{
+  &_100{ height: 100%; }
+}
+.w{
+  &_100{ width: 100%; }
+  &_50{ width: 50%; }
+}
+.text-overflow{
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.border{
+  &-left0{border-left: 0px !important;}
+  &-right0{border-right: 0px !important;}
+  &-top0{border-top: 0px !important;}
+  &-bottom0{border-bottom: 0px !important;}
+}
+
+.noresize{ resize: none; }
+
+.fs{
+  &-12{
+    font-size: 12px;
+  }
+}
+
+.popup{
+  &-bg{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,.3);
+    z-index: 10;
+  }
+  &-wrapper{
+    background: #fff;
+    position: absolute;
+    z-index: 11;
+    &.fixed{
+      top: 50px;
+      width: calc(100% - 320px);
+      height: calc(100% - 100px);
+      & .quotas-interface__inner{
+        height: calc(100% - 69px);
+      }
+      // overflow: auto;
+    }
+  }
+}
+
+.noselect{
+  user-select: none;
+}
+
+.weight{
+  &_100{
+    font-weight: 100;
+  }
+  &_500{
+    font-weight: 500;
+  }
+  &_600{
+    font-weight: 600;
+  }
+}
+
+.br{
+  &_0{
+    border-radius: 0px;
+  }
+}
+
+/* Material Design END */

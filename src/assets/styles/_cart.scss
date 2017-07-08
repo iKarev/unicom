@@ -1,0 +1,12 @@
+.ut-cart{
+    &__qty{
+        &_btn{
+            height: 12px;
+            line-height: 1px;
+            width: 20px;
+            & i {
+                margin: -4px;
+            }
+        }
+    }
+}

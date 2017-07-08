@@ -1,0 +1,57 @@
+.ut{
+    &-product{
+        border: 1px solid $lightgray;
+        border-radius: 4px;
+        &:hover{
+            box-shadow: 0 2px 8px rgba(100, 100, 100, 0.5)
+        }
+        &__top{
+            cursor: pointer;
+        }
+        &__title{
+            margin-top: 8px;
+            font-size: 16px;
+            font-weight: 700;
+            border-bottom: 1px solid $lightgray;
+            padding-bottom: 4px;
+            cursor: pointer;
+            &:hover{
+                color: $sapphire;
+            }
+        }
+        &__price{
+            &_wrapper{
+                border-bottom: 1px solid $lightgray;
+                padding-bottom: 18px;
+            }
+            &_old{
+                text-align: left;
+                margin-top: 14px;
+                margin-bottom: 0;
+                text-decoration: line-through;
+                line-height: 4px;
+            }
+            &_new{
+                font-size: 20px;
+                font-weight: 700;
+                letter-spacing: 1px;
+                margin-top: 4px;
+            }
+        }
+        &-detail{
+            border-left: 1px solid $lightgray;
+            border-right: 1px solid $lightgray;
+            &__image{
+                border-radius: 4px;
+            }
+            &__addtocart{
+                position: absolute;
+                width: calc(50% - 24px);
+                bottom: 8px;
+            }
+            &__back{
+                font-size: 26px;
+            }
+        }
+    }
+}

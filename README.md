@@ -8,4 +8,4 @@ Run `ng serve` for a dev server, then navigate to `http://localhost:4200/`.
 
 ## Server side
 
-From the project root go to `cd server`, then run `node server`. To prevent strange problems with requests, please turn off all adguards, adskillers programs etc.
+From the project root go to `cd server`, then run `node server`. To prevent some problems with server side, please turn off all adguards, adskillers programs etc on the test task site.
